@@ -41,15 +41,10 @@ fun MyApp(content: @Composable () -> Unit) {
 
 @Composable
 fun Greeting(name: String) {
-    var isSelected by remember { mutableStateOf(false) }
-    val backgroundColor by animateColorAsState(if (isSelected) Color.Red else Color.Transparent)
-
-    Text(
+    Text (
         text = "Hello $name!",
-        modifier = Modifier
-            .padding(24.dp)
-            .background(color = backgroundColor)
-            .clickable(onClick = { isSelected = !isSelected })
+        modifier = Modifier.padding(24.dp),
+        style = MaterialTheme.typography.h1
     )
 }
 
@@ -94,8 +89,8 @@ fun Counter(count: Int, updateCount: (Int) -> Unit) {
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
-    MyApp {
-        MyScreenContent()
+    JetpackComposeBasicsCodelabTheme {
+        Greeting("Android")
     }
 }
 
